@@ -27,9 +27,9 @@ jobs:
 
         # Build Packages for Testing
       - name: 🔨 Build Packages
-        run: |
-	  cd website
-	  yarn run build
+        run: | 
+          cd website
+          yarn run build
 
         # Deploy to GH pages
       - name: 🚀 Deploy
