@@ -8,10 +8,10 @@
 const siteConfig = {
   title: 'Create React App',
   tagline: 'Set up a modern web app by running one command.',
-  url: 'https://create-react-app.dev',
-  baseUrl: '/',
-  projectName: 'create-react-app',
-  organizationName: 'facebook',
+  url: 'https://sidrana.dev/',
+  baseUrl: '/cra-docs/',
+  projectName: 'cra-docs',
+  organizationName: 'sid-r-singh',
   favicon: 'img/favicon/favicon.ico',
   presets: [
     [
