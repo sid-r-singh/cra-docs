@@ -1,0 +1,38 @@
+name: Test Website
+on:
+  push
+
+
+jobs:
+  publish:
+    name: Test Website
+    runs-on: ubuntu-latest
+    steps:
+
+      # Checkout Project
+      - name: 📚 Checkout
+        uses: actions/checkout@v2
+
+        # Setup NodeJS
+      - name: 🟢 Setup Node ${{ matrix.node_version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+        # Install Dependencies
+      - name: ⏳ Install
+        run: |
+          cd website
+          yarn install
+
+        # Build Packages for Testing
+      - name: 🔨 Build Packages
+        run: yarn run build
+
+        # Deploy to GH pages
+      - name: 🚀 Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          full_commit_message: "Deployed updated by GH-action"
