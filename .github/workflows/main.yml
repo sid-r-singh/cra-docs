@@ -33,10 +33,10 @@ jobs:
           cd ..
           tree
 
-#         # Deploy to GH pages
-#       - name: 🚀 Deploy
-#         run: |
-#           git config --global user.email "<GITHUB_USERNAME>@users.noreply.github.com"
-#           git config --global user.name "<GITHUB_ACTOR>"
-#           echo "machine github.com login <GITHUB_USERNAME> password ${{ secrets.SECRET_NAME }} > ~/.netrc
-#           cd website && yarn install && GIT_USER=<GIT_USER> yarn run publish-gh-pages
+        # Deploy to GH pages
+      - name: 🚀 Deploy
+        run: |
+          git config --global user.email "${GITHUB_ACTOR}@bots.github.com"
+          git config --global user.name "$GITHUB_ACTOR"
+          echo "machine github.com login "$GITHUB_ACTOR" password ${{ secrets.GH_PAT }} > ~/.netrc
+          cd website && yarn install && GIT_USER="$GITHUB_ACTOR" yarn run publish-gh-pages
