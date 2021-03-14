@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: Dump GitHub context
         run: | 
-          echo ${{github.pusher.email}}
+          echo $github.pusher.email
       - name: Dump job context
         env:
           JOB_CONTEXT: ${{ toJSON(job) }}
