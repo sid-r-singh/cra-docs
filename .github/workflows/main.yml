@@ -34,9 +34,8 @@ jobs:
           tree
 
         # Deploy to GH pages
-      - name: 🚀 Deploy
-        run: |
-          git config --global user.email "${{GITHUB_ACTOR}}@bots.github.com"
-          git config --global user.name "$GITHUB_ACTOR"
-          echo "machine github.com login "$GITHUB_ACTOR" password ${{ secrets.GH_PAT }} > ~/.netrc
-          cd website && yarn install && GIT_USER="$GITHUB_ACTOR" yarn run publish-gh-pages
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./website/build
