@@ -30,12 +30,13 @@ jobs:
         run: | 
           cd website
           yarn run build
+          cd ..
           tree
 
-        # Deploy to GH pages
-      - name: 🚀 Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./website/build
-          full_commit_message: "🚀Deployed by GH-action"
+#         # Deploy to GH pages
+#       - name: 🚀 Deploy
+#         run: |
+#           git config --global user.email "<GITHUB_USERNAME>@users.noreply.github.com"
+#           git config --global user.name "<GITHUB_ACTOR>"
+#           echo "machine github.com login <GITHUB_USERNAME> password ${{ secrets.SECRET_NAME }} > ~/.netrc
+#           cd website && yarn install && GIT_USER=<GIT_USER> yarn run publish-gh-pages
