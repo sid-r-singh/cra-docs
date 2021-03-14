@@ -30,11 +30,12 @@ jobs:
         run: | 
           cd website
           yarn run build
+          tree
 
         # Deploy to GH pages
       - name: 🚀 Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: /website/build
+          publish_dir: ./website/build
           full_commit_message: "🚀Deployed by GH-action"
